@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Đăng ký</h2>
+    <form action="/api/register" method="POST">
+        <div>
+            <p>Full name: </p>
+            <input required type="text" name="fullname" id="fullname" placeholder="User name">
+        </div>
+        <div>
+            <p>Email: </p>
+            <input required type="text" name="emailaddress" id="emailaddress" placeholder="Email">
+        </div>
+        <div>
+            <p>Password: </p>
+            <input required type="text" name="password" id="password" placeholder="Password">
+        </div>
+        <div>
+            <p>Re-password: </p>
+            <input required type="text" id="Re-password" placeholder="Re-password">
+        </div>
+        <button type="submit" id="btn-submit">Đăng ký</button>
+        <a href="/api/sign-in">Đăng nhập</a>
+
+    </form>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+    integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    var passwordDOM = document.querySelector('#password')
+    var re_passwordDOM = document.querySelector('#Re-password')
+    var emailaddressDOM = document.querySelector('#emailaddress')
+    var fullnameDOM = document.querySelector('#fullname')
+    var btnSubmitDOM = document.querySelector('#btn-submit')
+
+    btnSubmitDOM.addEventListener('click', async (event)=>{
+        event.preventDefault()
+        if(passwordDOM.value !== "" && re_passwordDOM.value !== ""){
+            if( passwordDOM.value != re_passwordDOM.value)
+                return alert("Xác thực không thành công, vui lòng KT lại!")
+        }
+        let result = await axios.post('http://localhost:3000/api/register', { fullname: fullnameDOM.value, emailaddress: emailaddressDOM.value,password: passwordDOM.value })
+        if(!result)  return alert("Đăng ký không thành công!")
+        window.location.href = 'http://localhost:3000/api/sign-in';
+    })
+
+</script>
+</html>

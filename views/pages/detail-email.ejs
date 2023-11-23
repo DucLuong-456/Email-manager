@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi tiết email</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+   body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f1f1f1;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.sender {
+  font-size: 14px;
+  color: #888;
+  margin: 0;
+}
+
+.content {
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.content p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+</style>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 class="title"><%=emailDetail[0].tieude%></h1>
+      <p class="sender">Người gửi: <%=emailDetail[0].userID%></p>
+    </div>
+    <div class="content">
+      <p><%=emailDetail[0].noidung%></p>
+    </div>
+  </div>
+</body>
+</html>

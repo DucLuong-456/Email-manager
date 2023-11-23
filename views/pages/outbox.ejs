@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbox</title>
+</head>
+<body>
+    <style>
+        nav {
+            width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: #f2f2f2;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+    
+        li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+    
+        .active{
+            background-color: #ffc107;
+            color: white;
+        }
+        a {
+            text-decoration: none;
+            color: #333;
+            padding: 8px 12px;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+    
+        a:hover {
+            background-color: #ffc107;
+            color: white;
+        }
+
+        .list-item{
+            width: 1000px;
+            margin: 20px auto;
+            border: 2px solid #333;
+            height: 500px;
+        }
+        .item {
+            margin-top: 8px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .item div{
+            width: 15%;
+        }
+        .item .noidung{
+            width: 50%;
+        }
+        .item .thoigian{
+            width: 20%;
+        }
+        /* phan trang */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    
+        .pagination li {
+            list-style: none;
+            margin: 0 5px;
+        }
+    
+        .pagination a {
+            display: inline-block;
+            padding: 5px 10px;
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+    
+        .pagination a.active {
+            background-color: orangered;
+            color: white;
+            border-color: #333;
+        }
+    </style>
+    
+    <nav>
+        <ul>
+            <li class="nav-link"><a class="active" href="#">Home</a></li>
+            <li class="nav-link"><a href="#">Inbox</a></li>
+            <li class="nav-link"><a href="#">Outbox</a></li>
+            <li class="nav-link"><a href="#">Send email</a></li>
+            <li class="nav-link"><a href="#">Log out</a></li>
+        </ul>
+    </nav>
+
+    <div class="list-item">
+        <% for(var i=0; i<listuser.length; i++){%>
+        <div class="item">
+                <div>
+                <input type="checkbox" class="ischeckitem">
+                <span class="tieude"><%=listuser[i].tieude%></span>
+                </div>
+                <span class="noidung"><a href="/api/detail-email/<%=listuser[i].id%>"><%=listuser[i].noidung%></a></span>
+                <span class="thoigian"><%=listuser[i].status%></span>
+                <button class="delete-btn">Xoá</button>
+        </div>
+        <%}%>
+    </div>
+    
+    <div class="pagination">
+        <ul>
+            <li><a href="#" class="active">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    var list_itemDOM = document.querySelectorAll('ul .nav-link a')
+    list_itemDOM.forEach((item)=>{
+        item.addEventListener('click',()=>{
+            list_itemDOM.forEach((item)=>{item.classList.remove('active')})
+            item.classList.add('active')
+        })
+    })
+</script>
+</html>
