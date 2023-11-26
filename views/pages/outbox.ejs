@@ -93,15 +93,8 @@
         }
     </style>
     
-    <nav>
-        <ul>
-            <li class="nav-link"><a class="active" href="#">Home</a></li>
-            <li class="nav-link"><a href="#">Inbox</a></li>
-            <li class="nav-link"><a href="#">Outbox</a></li>
-            <li class="nav-link"><a href="#">Send email</a></li>
-            <li class="nav-link"><a href="#">Log out</a></li>
-        </ul>
-    </nav>
+    <%- include('../partials/header') %>
+
 
     <div class="list-item">
         <% for(var i=0; i<listuser.length; i++){%>
@@ -111,8 +104,11 @@
                 <span class="tieude"><%=listuser[i].tieude%></span>
                 </div>
                 <span class="noidung"><a href="/api/detail-email/<%=listuser[i].id%>"><%=listuser[i].noidung%></a></span>
-                <span class="thoigian"><%=listuser[i].status%></span>
-                <button class="delete-btn">Xoá</button>
+                <span class="thoigian"><%=listuser[i].thoigian%></span>
+
+                <form action="/api/delete-email/<%=listuser[i].id%>" method="GET">
+                    <a style="height: 100px; width: 150px; background-color: #ffc107;" href="/api/delete-email/<%=listuser[i].id%>">Xoá</a>
+                </form>
         </div>
         <%}%>
     </div>

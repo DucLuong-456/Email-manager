@@ -7,15 +7,9 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <style>
-   body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
 .container {
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 5px auto;
   padding: 20px;
   background-color: #f1f1f1;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
@@ -51,6 +45,8 @@
 }
 </style>
 <body>
+  
+  <%- include('../partials/header') %>
   <div class="container">
     <div class="header">
       <h1 class="title"><%=emailDetail[0].tieude%></h1>

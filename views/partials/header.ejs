@@ -1,0 +1,50 @@
+<style>
+    nav {
+            width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: #f2f2f2;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+    
+        li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+    
+        .active{
+            background-color: #ffc107;
+            color: white;
+        }
+        a {
+            text-decoration: none;
+            color: #333;
+            padding: 8px 12px;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+    
+        a:hover {
+            background-color: #ffc107;
+            color: white;
+        }
+</style>
+<nav>
+    <h1><a class="active"  href="/api/inbox-page">Home</a></h1>
+    <ul>
+        <li class="nav-link"><a href="/api/inbox-page">Inbox</a></li>
+        <li class="nav-link"><a href="/api/outbox-page">Outbox</a></li>
+        <li class="nav-link"><a href="/api/create-email">Send email</a></li>
+        <li class="nav-link"><a href="/api/logout">Log out</a></li>
+    </ul>
+</nav>

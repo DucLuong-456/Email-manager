@@ -99,9 +99,11 @@ input[type="file"] {
   color: #fff;
 }
 </style>
+<%- include('../partials/header') %>
+
 <body>
   <div class="container">
-    <form action="/api/create" method="POST">
+    <form action="/api/create" method="POST"  enctype="multipart/form-data">
       <div class="form-group">
         <label for="recipient">Người nhận:</label>
         <select id="recipient" name="recipient">
